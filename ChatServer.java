@@ -73,20 +73,26 @@ class ChatHandler implements URLHandler {
                     int numberOfExclamationMarks = 0;
                     String analysis = "";
                     index += 1;
-                    int[] codePoints = new int[0];
-                    if (line.contains(shouldBeUser[1]))
-                        codePoints = line.codePoints().toArray();
+                    // split at first :
+                    String user = line.split(":")[0];
+                    if (!user.equals(shouldBeUser[1]))
+                        continue;
+                    int[] codePoints = line.codePoints().toArray();
                     int characterIndex = 0;
+                    boolean has_lol = false;
+                    boolean has_awww = false;
                     while (characterIndex < codePoints.length) {
                         int character = codePoints[characterIndex];
                         if (character == (int) '!') {
                             numberOfExclamationMarks += 1;
                         }
-                        if (new String(Character.toChars(character)).equals("😂")) {
-                            analysis = " This message has a LOL vibe.";
+                        if (new String(Character.toChars(character)).equals("😂") && !has_lol) {
+                            analysis += " This message has a LOL vibe.";
+                            has_lol = true;
                         }
-                        if (new String(Character.toChars(character)).equals("🥹")) {
-                            analysis = " This message has a awwww vibe.";
+                        if (new String(Character.toChars(character)).equals("🥹") && !has_awww) {
+                            analysis += " This message has a awwww vibe.";
+                            has_awww = true;
                         }
                         characterIndex += 1;
                     }

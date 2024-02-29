@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class ChatHistoryReader {
@@ -14,8 +15,9 @@ public class ChatHistoryReader {
      * @return an array of strings, each representing a line in the file.
      * @throws IOException if an I/O error occurs reading from the file or a malformed or unmappable byte sequence is read.
      */
+
     public String[] readFileAsArray(String filePath) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get(filePath));
+        List<String> lines = Files.readAllLines(Paths.get(filePath), StandardCharsets.UTF_8);
         return lines.toArray(new String[0]);
     }
 
