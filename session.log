@@ -1,0 +1,11 @@
+/
+/favicon.ico
+/retrieve-history?file=chathistory1.txt
+/
+/chat?user=System&message=%23Test%20Message
+/retrieve-history?file=chathistory1.txt
+/retrieve-history?file=chathistory1.txt
+/chat?user=mkjackson&message=Hm?%20Looks%20like%20server%20maintenance.
+/chat?user=Stanley&message=Hm?%20What%20are%20you%20talking%20about?
+/chat?user=mkjackson&message=My%20messages%20are%20filled%20with%20%27System:%20%23TestMessage%27
+/save?name=syserr.txt
